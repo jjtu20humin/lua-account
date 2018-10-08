@@ -1,0 +1,215 @@
+/*** public ***/
+body{background:#f6f6f6;}
+a, a:hover, a:visited{color: #29bd68;}
+input,button,select,textarea{outline:none;}
+
+
+/*** color start ***/
+.am-form .am-icon-check-circle-o{color:#ccc;}
+.am-form .am-icon-check-circle{color: #29bd68;}
+.corGreen{color: #29bd68;}
+.corGray{color: #ccc;}
+.bgGreen{background: #29bd68;}
+.bgGrag{background: #969aa3;}
+/*** color end ***/
+
+/*** button start ***/
+.am-btn{
+	margin:2em 0 0;
+	padding:.6em;
+	width: 100%;
+	border-radius: 1000px;
+	font-size: 1.8rem;
+}
+.btn-green{
+	border: 1px solid #29bd68;
+	color:#fff;
+	background: #29bd68;
+}
+.btn-green-o{
+	border: 1px solid #29bd68;
+	color:#29bd68;
+	background: none;
+}
+.btn-green:active, .btn-green:hover, .btn-green:visited{
+	color: #fff;
+}
+.btn-green-o:active, .btn-green-o:hover, .btn-green-o:visited{
+	color:#29bd68;
+}
+.btn-green.am-disabled{
+	color:#ccc; 
+	background:none; 
+	border: 1px solid #ccc; 
+	opacity: 1;
+}
+.btn-gray{
+	border: 1px solid #969aa3;
+	color:#fff;
+	background: #969aa3;
+}
+.btn-gray-o{
+	border: 1px solid #ccc;
+	color:#ccc;
+	background: none;
+}
+.btn-gray:active, .btn-gray:hover, .btn-gray:visited{
+	color: #fff;
+}
+.btn-gray-o:active, .btn-gray-o:hover, .btn-gray-o:visited{
+	color:#29bd68;
+}
+.btn-red{
+	border: 1px solid #eb5757;
+	color:#fff;
+	background: #eb5757;
+}
+.btn-red-o{
+	border: 1px solid #eb5757;
+	color:#eb5757;
+	background: none;
+}
+.btn-red:active, .btn-red:hover, .btn-red:visited{
+	color: #fff;
+}
+.btn-red-o:active, .btn-red-o:hover, .btn-red-o:visited{
+	color:#eb5757;
+}
+.am-form input[type=text], .am-form input[type=password]{
+	padding: .7em;
+}
+.btn-getcode{
+	margin: 0;
+	border-radius: inherit;
+	font-size: 1.6rem;
+}
+/*** button end ***/
+
+.am-panel{
+	border:none; 
+	background:#f6f6f6; 
+	box-shadow:none;
+}
+.am-panel-default>.am-panel-hd{
+	background:#fff; 
+	padding:1rem 1.25rem; 
+	font-size:1.8rem;
+}
+
+
+/*** login start ***/
+.login{text-align: center;}
+.login .logo img{
+	width: 50%;
+	max-width: 200px;
+	margin: 1.8em 0;
+}
+.login .am-form{
+	padding: 0 20px;
+}
+.login .am-form .am-icon-lock, .login .am-form .am-icon-user{
+	color: #999;
+}
+.login .am-form .am-form-icon .am-form-field{
+	border-radius: 0 0 3px 3px;
+}
+.login .am-form .am-form-icon:nth-of-type(1) .am-form-field{
+	border-bottom: none;
+	border-radius: 3px 3px 0 0;
+}
+.login .am-form p{
+	font-size: 1.4rem;
+}
+.login .am-thumbnails{
+	padding: 0 1.5rem;
+	margin-top: 5em;
+	font-size: 1.4rem;
+	color: #999;
+}
+/*** login end ***/
+
+/*** register start ***/
+.register .am-panel{border:none; box-shadow:none; background:#f6f6f6;}
+.register .am-panel-bd{padding: 2.5rem 1.25rem;}
+.register .am-form p{font-size: 1.4rem;}
+/*** register end ***/
+
+/*** verify start ***/
+.verify .am-panel{border:none; box-shadow:none; background:#f6f6f6;}
+
+.verify .am-panel-bd{padding: 2.5rem 1.25rem;}
+.verify .am-u-sm-4, .verify .am-u-sm-8{padding:0;}
+.verify .am-input-group .am-form-field{height:3.6rem;}
+.verify .am-input-group-btn>.am-btn{height:3.6rem; background:#fff;}
+.verify .am-u-sm-6{padding: 0 .4rem;}
+.verify .am-form p{font-size: 1.4rem;}
+/*** verify end ***/
+
+/*** 设置密码&找回密码 start ***/
+.setPassword .am-icon-fw{width: 1em;}
+.setPassword .am-form .am-input-group-label{background:#fff;} 
+.setPassword .am-form input{border-left:none;}
+.setPassword .am-form .am-input-group:nth-of-type(2){margin-top:7px;}
+.setPassword .am-form p{font-size:1.4rem; text-align:center;}
+.setPassword .am-input-group{width:100%;}
+.setPassword .am-input-group .am-form-field{height: auto;height:40px\9;}
+/*** 设置密码&找回密码 end ***/
+
+/*** sendEmail atart ***/
+.sendmail .am-panel{border:none; box-shadow:none; background:#f6f6f6;}
+.sendmail .am-panel-bd{text-align: center;}
+.sendmail .picMail img{width: 65%; max-width:280px; margin-top: 1em;}
+/*** sendEmail end ***/
+
+/*** account&address start ***/
+.list-outside .am-cf{margin:1rem 0; padding:1.25rem 1rem;}
+.list-outside .am-cf-specil{padding: 0;}
+.list-outside .am-fl{color:#000;}
+.list-outside .am-fr{color:#7b7b7b;}
+.am-cf-specil .am-cf{margin: 0;}
+.list-inside{margin:0; padding:0; list-style:none;}
+.list-inside .am-cf{border-bottom:1px solid #dedede; padding:1.25rem 1rem 1.25rem 0; margin:0 0 0 1rem;}
+.list-inside li:last-child{border-bottom: none;}
+
+.myAccount .am-panel, .myAddress .am-panel{border:none; box-shadow:none; background:#f6f6f6;}
+.myAccount .am-list>li>a, .myAddress .am-list>li>a{padding: 0;}
+.myAccount .am-panel-bd, .myAddress .am-panel-bd{padding:0 1.25rem;}
+.myAccount .am-panel-bd a, .myAddress .am-panel-bd a{margin: 1rem 0 0 0;}
+
+.myAccount .photo-head img{height:3.8rem; border-radius:100%;}
+.myAccount .photo-head .am-fl div{display:inline-block; margin-left:7px; vertical-align:middle;}
+.myAccount .photo-head .am-fl span{color:#7b7b7b;}
+.myAccount .photo-head .am-fr{line-height:3.8rem;}
+
+.myAddress .am-list .am-fl span{font-size:1.4rem; color:#7b7b7b;}
+.myAddress .am-list .am-fr a{display: block; width:5rem; margin-top:1rem; padding:.2rem 0; text-align: center; border:1px solid #dedede; border-radius:1000px; font-size:1.4rem; color:#7b7b7b;}
+.myAddress .addAddress{padding:2rem 1rem;}
+.myAddress .addAddress .am-fr a{margin:0;}
+
+.changeAddress .list-inside{margin-top: 1rem; background:#fff; border-top:1px solid #dedede; border-bottom:1px solid #dedede;}
+.changeAddress .list-inside li{padding: .5rem 1rem .5rem 0;}
+.changeAddress .list-inside li span{background:#fff; border:none; color:#7b7b7b;}
+.changeAddress .list-inside li input{border:none; color:#000;}
+.changeAddress .list-inside li a{display:inline-block; border: none; color:#000;}
+.changeAddress a:hover, .changeAddress a:visited, .changeAddress a:active{color:#000;}
+.changeAddress select{width:100%; padding:.7rem;}
+/*** account&address end ***/
+
+
+/*** success start ***/
+.success{text-align:center; font-weight:500; }
+.success .picMail{margin-top:10%;}
+.success .picMail img{width:28%; max-width:280px; margin-top: 1em;}
+/*** success end ***/
+
+.cue{
+	background: #262626; 
+	width: 70%; 
+	margin: auto;
+	border-radius: 5px; 
+	box-shadow: 1px 1px 20px #000; 
+	font-size: 1.4rem; 
+	text-align: center; 
+	color: #fff;
+	line-height: 2.6rem;
+}

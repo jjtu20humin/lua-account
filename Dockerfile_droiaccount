@@ -1,0 +1,80 @@
+#Dockerfile to make droiaccount
+
+#original image
+FROM ubuntu
+
+#author
+MAINTAINER sunny "568291982@qq.com"
+
+#install necessary package
+RUN apt-get update && apt-get install -y \
+	libpcre3 \
+	openssl \
+	libssl-dev \
+	libncurses5-dev \
+	lua5.1 \
+	libreadline-dev \
+	make \
+	gcc \
+	luarocks \
+	git \
+&& rm -rf /var/lib/apt/lists/*
+
+#install pgmoon
+RUN luarocks install pgmoon
+
+#install luajit
+COPY ./LuaJIT-2.0.4.tar.gz /
+WORKDIR / 
+RUN tar -zxvf LuaJIT-2.0.4.tar.gz
+WORKDIR /LuaJIT-2.0.4 
+RUN make
+
+#install lua
+COPY ./lua-5.1.2.tar.gz /
+WORKDIR /
+RUN tar -zxvf lua-5.1.2.tar.gz 
+WORKDIR /lua-5.1.2
+RUN make linux && make install
+
+#install luasocket 
+COPY ./luasocket-2.0.2.tar.gz /
+WORKDIR / 
+RUN tar -zxvf luasocket-2.0.2.tar.gz
+WORKDIR luasocket-2.0.2
+RUN make && make install
+
+#install luasec
+COPY ./luasec-0.4.tar.gz /
+WORKDIR /
+RUN tar -zxvf luasec-0.4.tar.gz
+WORKDIR luasec-0.4
+RUN make linux && make install
+
+#install openresty
+COPY ./openresty.tar.gz /
+WORKDIR /
+RUN tar -zxvf openresty.tar.gz
+
+#copy lualib luascript nginx.conf html-soft-link
+COPY ./luascript.tar.gz /
+COPY ./lualib.tar.gz /
+COPY ./html.tar.gz /
+COPY ./nginx.conf /openresty/nginx/conf/
+WORKDIR /
+RUN tar -zxvf luascript.tar.gz -C /openresty/nginx/
+RUN tar -zxvf lualib.tar.gz && cp -rf lualib /openresty/
+RUN tar -zxvf html.tar.gz && cp -rf html /openresty/nginx/
+
+#delete useless package
+WORKDIR /
+RUN rm -rf LuaJIT-2.0.4 LuaJIT-2.0.4.tar.gz lua-5.1.2 lua-5.1.2.tar.gz luasocket-2.0.2 luasocket-2.0.2.tar.gz luasec-0.4 luasec-0.4.tar.gz openresty.tar.gz luascript.tar.gz lualib.tar.gz lualib html.tar.gz html
+
+#set port
+EXPOSE 80
+
+ENV PATH /openresty/nginx/sbin:$PATH
+
+#default command
+COPY ./start_nginx.sh /openresty/nginx/sbin/start_nginx
+#CMD ["start_nginx"]

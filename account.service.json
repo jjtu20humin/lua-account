@@ -1,0 +1,22 @@
+{
+    "kind":"Service",
+    "apiVersion":"v1", 
+    "metadata":{
+	"name":"sh-account", 
+	"labels":{
+	    "name":"sh-account" 
+	}
+    }, 
+    "spec":{
+	"ports": [ 
+	{
+	    "port":80 
+	}
+	], 
+	"selector":{
+	    "name":"sh-account" 
+	},
+	"type": "NodePort" 
+    }
+}
+

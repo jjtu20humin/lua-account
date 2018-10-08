@@ -1,0 +1,68 @@
+
+#user  root;
+worker_processes  1;
+
+error_log  logs/error.log  error;
+#error_log logs/error.log debug;
+#error_log tyd_log:size=65536,max_record=1024,connect_to=unix:/tmp/logd.sock,expire=1000ms debug;
+
+#pid        logs/nginx.pid;
+
+# for unix socket log directive
+#pod_name POD_NAME;
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+    init_by_lua_file '/openresty/nginx/luascript/init.lua';
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+	error_log /openresty/nginx/logs/lapi_err.log info;
+
+        location / {
+            root   /openresty/nginx/html;
+            index  index.html index.htm;
+        }
+       
+	location /oauth {
+            content_by_lua "Do_LAPI()";
+        }
+
+	location /actmail {
+            rewrite "^/actmail/(.*)/(.*)" http://www.testaccount.com/oauth/ui_maildeal?mailid=$1&checkno=$2 break;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+    }
+
+
+}
